@@ -8,6 +8,11 @@ class ResetProgressResponse(BaseModel):
     words_reset: int
 
 
+class ResetCooldownResponse(BaseModel):
+    success: bool
+    words_affected: int
+
+
 class WordInput(BaseModel):
     word: str
     translation: str

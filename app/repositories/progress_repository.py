@@ -364,6 +364,26 @@ class ProgressRepository:
         self.db.commit()
         return count
 
+    def reset_cooldown(self, user_id: UUID) -> int:
+        """
+        Reset all cooldown times for a user (set next_available_time to now).
+        This is a debug/test helper to skip waiting periods.
+
+        Returns:
+            Number of words affected
+        """
+        now = datetime.now(timezone.utc)
+        count = (
+            self.db.query(WordProgress)
+            .filter(
+                WordProgress.user_id == user_id,
+                WordProgress.next_available_time > now,
+            )
+            .update({WordProgress.next_available_time: now})
+        )
+        self.db.commit()
+        return count
+
     def get_pool_summary(self, user_id: UUID) -> Dict[str, List[Dict[str, Any]]]:
         """Get all words grouped by pool."""
         # Get all progress records (P1-P6, R1-R5)

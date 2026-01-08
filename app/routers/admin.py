@@ -5,6 +5,7 @@ from app.database import get_db
 from app.dependencies import get_user_id
 from app.schemas.admin import (
     ResetProgressResponse,
+    ResetCooldownResponse,
     SeedWordsRequest,
     SeedWordsResponse,
     WordsListResponse,
@@ -30,6 +31,27 @@ def reset_progress(
     return ResetProgressResponse(
         success=True,
         words_reset=words_reset,
+    )
+
+
+@router.post("/reset-cooldown", response_model=ResetCooldownResponse)
+def reset_cooldown(
+    user_id: str = Depends(get_user_id),
+    db: Session = Depends(get_db)
+):
+    """
+    Reset all cooldown times for a user (set next_available_time to now).
+
+    This is a debug/test helper to skip waiting periods.
+    After calling this, all words in P1-P5 and R1-R5 will be immediately available.
+    """
+    progress_repo = ProgressRepository(db)
+
+    words_affected = progress_repo.reset_cooldown(user_id)
+
+    return ResetCooldownResponse(
+        success=True,
+        words_affected=words_affected,
     )
 
 

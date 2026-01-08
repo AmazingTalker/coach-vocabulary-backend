@@ -403,6 +403,32 @@ X-User-Id: <user-uuid>
 
 ---
 
+#### POST /api/admin/reset-cooldown
+
+重置用戶的所有冷卻時間（測試用後門）。
+
+呼叫後，所有正在等待中的單字會立即變為可用狀態。
+
+**Headers:** `X-User-Id: <uuid>`
+
+**Response 200:**
+```json
+{
+  "success": true,
+  "words_affected": 5
+}
+```
+
+| 欄位 | 說明 |
+|------|------|
+| words_affected | 被解除冷卻的單字數量 |
+
+**效果：**
+- P1-P5 池中等待中的單字 → 立即可練習
+- R1-R5 池中等待中的單字 → 立即可複習或練習
+
+---
+
 #### POST /api/admin/seed-words
 
 匯入單字庫。
