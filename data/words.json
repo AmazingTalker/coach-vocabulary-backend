@@ -1,0 +1,82 @@
+[
+  {
+    "word": "ubiquitous",
+    "translation": "無處不在的",
+    "sentence": "Smartphones have become ubiquitous in modern society.",
+    "sentence_zh": "智慧型手機在現代社會已經變得無處不在。",
+    "image_url": "/static/images/ubiquitous.png",
+    "audio_url": "/static/audio/ubiquitous.mp3"
+  },
+  {
+    "word": "ephemeral",
+    "translation": "短暫的",
+    "sentence": "Fame is often ephemeral in the entertainment industry.",
+    "sentence_zh": "在娛樂圈，名聲往往是短暫的。",
+    "image_url": "/static/images/ephemeral.png",
+    "audio_url": "/static/audio/ephemeral.mp3"
+  },
+  {
+    "word": "pragmatic",
+    "translation": "務實的",
+    "sentence": "We need a pragmatic approach to solve this problem.",
+    "sentence_zh": "我們需要一個務實的方法來解決這個問題。",
+    "image_url": "/static/images/pragmatic.png",
+    "audio_url": "/static/audio/pragmatic.mp3"
+  },
+  {
+    "word": "eloquent",
+    "translation": "雄辯的",
+    "sentence": "She gave an eloquent speech at the conference.",
+    "sentence_zh": "她在會議上發表了一場雄辯的演講。",
+    "image_url": "/static/images/eloquent.png",
+    "audio_url": "/static/audio/eloquent.mp3"
+  },
+  {
+    "word": "resilient",
+    "translation": "有彈性的",
+    "sentence": "Children are remarkably resilient to change.",
+    "sentence_zh": "兒童對變化有著驚人的適應力。",
+    "image_url": "/static/images/resilient.png",
+    "audio_url": "/static/audio/resilient.mp3"
+  },
+  {
+    "word": "ambiguous",
+    "translation": "模糊的",
+    "sentence": "The contract contains several ambiguous clauses.",
+    "sentence_zh": "這份合約包含幾個模糊的條款。",
+    "image_url": "/static/images/ambiguous.png",
+    "audio_url": "/static/audio/ambiguous.mp3"
+  },
+  {
+    "word": "meticulous",
+    "translation": "一絲不苟的",
+    "sentence": "She is meticulous about her work.",
+    "sentence_zh": "她對工作一絲不苟。",
+    "image_url": "/static/images/meticulous.png",
+    "audio_url": "/static/audio/meticulous.mp3"
+  },
+  {
+    "word": "profound",
+    "translation": "深刻的",
+    "sentence": "The book had a profound impact on my thinking.",
+    "sentence_zh": "這本書對我的思維產生了深刻的影響。",
+    "image_url": "/static/images/profound.png",
+    "audio_url": "/static/audio/profound.mp3"
+  },
+  {
+    "word": "benevolent",
+    "translation": "仁慈的",
+    "sentence": "He was known as a benevolent leader.",
+    "sentence_zh": "他以仁慈的領導者著稱。",
+    "image_url": "/static/images/benevolent.png",
+    "audio_url": "/static/audio/benevolent.mp3"
+  },
+  {
+    "word": "tenacious",
+    "translation": "堅韌的",
+    "sentence": "Her tenacious spirit helped her overcome many obstacles.",
+    "sentence_zh": "她堅韌的精神幫助她克服了許多障礙。",
+    "image_url": "/static/images/tenacious.png",
+    "audio_url": "/static/audio/tenacious.mp3"
+  }
+]

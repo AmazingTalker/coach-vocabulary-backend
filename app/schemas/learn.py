@@ -1,0 +1,21 @@
+from typing import Optional, List
+from pydantic import BaseModel
+
+from app.schemas.common import WordDetailSchema, ExerciseSchema
+
+
+class LearnSessionResponse(BaseModel):
+    available: bool
+    reason: Optional[str] = None
+    words: List[WordDetailSchema]
+    exercises: List[ExerciseSchema]
+
+
+class LearnCompleteRequest(BaseModel):
+    word_ids: List[str]
+
+
+class LearnCompleteResponse(BaseModel):
+    success: bool
+    words_moved: int
+    today_learned: int
