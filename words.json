@@ -1,0 +1,810 @@
+[
+    {
+        "word": "a",
+        "translation": "一(個)",
+        "image_file": "0-a.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 1
+    },
+    {
+        "word": "abandon",
+        "translation": "拋棄、捨棄、中止",
+        "image_file": "1-abandon.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "abbey",
+        "translation": "大修道院",
+        "image_file": "2-abbey.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 17
+    },
+    {
+        "word": "abbreviate",
+        "translation": "縮寫、使簡短",
+        "image_file": "3-abbreviate.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    },
+    {
+        "word": "abbreviation",
+        "translation": "縮寫、簡稱",
+        "image_file": "4-abbreviation.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    },
+    {
+        "word": "abdomen",
+        "translation": "腹部",
+        "image_file": "5-abdomen.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 5
+    },
+    {
+        "word": "abide",
+        "translation": "容忍、遵守",
+        "image_file": "6-abide.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "ability",
+        "translation": "能力、才能",
+        "image_file": "7-ability.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 12
+    },
+    {
+        "word": "able",
+        "translation": "能夠的、有才能的",
+        "image_file": "8-able.png",
+        "audio_url": null,
+        "level_id": 2,
+        "category_id": 12
+    },
+    {
+        "word": "abnormal",
+        "translation": "不正常的",
+        "image_file": "9-abnormal.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "aboard",
+        "translation": "在(交通工具)上",
+        "image_file": "10-aboard.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 3
+    },
+    {
+        "word": "abolish",
+        "translation": "廢除",
+        "image_file": "11-abolish.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 20
+    },
+    {
+        "word": "aboriginal",
+        "translation": "土著的；土著",
+        "image_file": "12-aboriginal.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "aborigine",
+        "translation": "原住民",
+        "image_file": "13-aborigine.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "abortion",
+        "translation": "流產、墮胎",
+        "image_file": "14-abortion.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "abound",
+        "translation": "大量存在、富足",
+        "image_file": "15-abound.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "about",
+        "translation": "大約、關於；大約、幾乎、在周圍",
+        "image_file": "16-about.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 3
+    },
+    {
+        "word": "above",
+        "translation": "在…上面、超過；上文、上述的",
+        "image_file": "17-above.png",
+        "audio_url": null,
+        "level_id": 2,
+        "category_id": 3
+    },
+    {
+        "word": "abroad",
+        "translation": "在國外、到國外",
+        "image_file": "18-abroad.png",
+        "audio_url": null,
+        "level_id": 3,
+        "category_id": 3
+    },
+    {
+        "word": "abrupt",
+        "translation": "突然的、唐突的",
+        "image_file": "19-abrupt.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 17
+    },
+    {
+        "word": "absence",
+        "translation": "缺席、不在場",
+        "image_file": "20-absence.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 3
+    },
+    {
+        "word": "absent",
+        "translation": "缺席的、不在場的、心不在焉的",
+        "image_file": "21-absent.png",
+        "audio_url": null,
+        "level_id": 2,
+        "category_id": 5
+    },
+    {
+        "word": "absent-minded",
+        "translation": "心不在焉的",
+        "image_file": "22-absent-minded.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "absolute",
+        "translation": "完全的、絕對的；絕對",
+        "image_file": "23-absolute.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "absorb",
+        "translation": "吸收、併入",
+        "image_file": "24-absorb.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "abstract",
+        "translation": "抽象的；摘要",
+        "image_file": "25-abstract.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "abstraction",
+        "translation": "抽象(概念)、抽取、提取",
+        "image_file": "26-abstraction.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "absurd",
+        "translation": "荒謬的；荒誕(的事物)",
+        "image_file": "27-absurd.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "abundance",
+        "translation": "大量、充裕",
+        "image_file": "28-abundance.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "abundant",
+        "translation": "大量的",
+        "image_file": "29-abundant.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "abuse",
+        "translation": "濫用、虐待",
+        "image_file": "30-abuse.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "academic",
+        "translation": "學術的、學業的",
+        "image_file": "31-academic.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "academy",
+        "translation": "學院、學會",
+        "image_file": "32-academy.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "accelerate",
+        "translation": "加速",
+        "image_file": "33-accelerate.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "acceleration",
+        "translation": "加速",
+        "image_file": "34-acceleration.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "accent",
+        "translation": "口音、腔調",
+        "image_file": "35-accent.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 12
+    },
+    {
+        "word": "accept",
+        "translation": "收受、接受(提議、邀請)、同意",
+        "image_file": "36-accept.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "acceptable",
+        "translation": "可接受的、認可的",
+        "image_file": "37-acceptable.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "acceptance",
+        "translation": "接受、認可",
+        "image_file": "38-acceptance.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "accepted",
+        "translation": "公認的",
+        "image_file": "39-accepted.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "access",
+        "translation": "通道、進入(權)；存取、到達",
+        "image_file": "40-access.png",
+        "audio_url": null,
+        "level_id": 8,
+        "category_id": 18
+    },
+    {
+        "word": "accessible",
+        "translation": "可到達的、易理解的",
+        "image_file": "41-accessible.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    },
+    {
+        "word": "accessory",
+        "translation": "附件、配件；副的、輔助的",
+        "image_file": "42-accessory.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    },
+    {
+        "word": "accident",
+        "translation": "意外事故",
+        "image_file": "43-accident.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 3
+    },
+    {
+        "word": "accidental",
+        "translation": "意外的、偶然的",
+        "image_file": "44-accidental.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "acclaim",
+        "translation": "稱譽、(給予)高度評價",
+        "image_file": "45-acclaim.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 17
+    },
+    {
+        "word": "accommodate",
+        "translation": "容納",
+        "image_file": "46-accommodate.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 3
+    },
+    {
+        "word": "accommodation",
+        "translation": "住宿、停留處",
+        "image_file": "47-accommodation.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 3
+    },
+    {
+        "word": "accompany",
+        "translation": "陪同、伴隨",
+        "image_file": "48-accompany.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "accomplish",
+        "translation": "完成",
+        "image_file": "49-accomplish.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "accomplished",
+        "translation": "技藝高超的、有才華的",
+        "image_file": "50-accomplished.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "accord",
+        "translation": "贈予、一致；協議、條約",
+        "image_file": "51-accord.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "accordance",
+        "translation": "依照、依據",
+        "image_file": "52-accordance.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "accordingly",
+        "translation": "相應地、因此",
+        "image_file": "53-accordingly.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 3
+    },
+    {
+        "word": "account",
+        "translation": "帳戶、敘述；視為、解釋、佔",
+        "image_file": "54-account.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "accountable",
+        "translation": "應負責任的",
+        "image_file": "55-accountable.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 20
+    },
+    {
+        "word": "accountant",
+        "translation": "會計師",
+        "image_file": "56-accountant.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 13
+    },
+    {
+        "word": "accounting",
+        "translation": "會計",
+        "image_file": "57-accounting.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "accumulate",
+        "translation": "累積、逐漸增加",
+        "image_file": "58-accumulate.png",
+        "audio_url": null,
+        "level_id": 8,
+        "category_id": 12
+    },
+    {
+        "word": "accumulation",
+        "translation": "累積",
+        "image_file": "59-accumulation.png",
+        "audio_url": null,
+        "level_id": 8,
+        "category_id": 12
+    },
+    {
+        "word": "accuracy",
+        "translation": "準確(度)",
+        "image_file": "60-accuracy.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 18
+    },
+    {
+        "word": "accurate",
+        "translation": "正確的、精準的",
+        "image_file": "61-accurate.png",
+        "audio_url": null,
+        "level_id": 6,
+        "category_id": 12
+    },
+    {
+        "word": "accusation",
+        "translation": "控告、指控",
+        "image_file": "62-accusation.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 20
+    },
+    {
+        "word": "accuse",
+        "translation": "指控",
+        "image_file": "63-accuse.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "accustom",
+        "translation": "使習慣於",
+        "image_file": "64-accustom.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 5
+    },
+    {
+        "word": "accustomed",
+        "translation": "習慣於",
+        "image_file": "65-accustomed.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 5
+    },
+    {
+        "word": "ace",
+        "translation": "A紙牌、高手；第一流的；表現極好",
+        "image_file": "66-ace.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 17
+    },
+    {
+        "word": "ache",
+        "translation": "疼痛",
+        "image_file": "67-ache.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 5
+    },
+    {
+        "word": "achieve",
+        "translation": "達到、完成、實現",
+        "image_file": "68-achieve.png",
+        "audio_url": null,
+        "level_id": 4,
+        "category_id": 12
+    },
+    {
+        "word": "achievement",
+        "translation": "成就、成績",
+        "image_file": "69-achievement.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "acid",
+        "translation": "酸；酸(性)的",
+        "image_file": "70-acid.png",
+        "audio_url": null,
+        "level_id": 6,
+        "category_id": 12
+    },
+    {
+        "word": "acknowledge",
+        "translation": "承認、告知、致意、感謝",
+        "image_file": "71-acknowledge.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 20
+    },
+    {
+        "word": "acne",
+        "translation": "痤瘡、粉刺",
+        "image_file": "72-acne.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 5
+    },
+    {
+        "word": "acoustic",
+        "translation": "聲音的、原聲的；音響效果",
+        "image_file": "73-acoustic.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    },
+    {
+        "word": "acquaint",
+        "translation": "使熟悉、使了解",
+        "image_file": "74-acquaint.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "acquaintance",
+        "translation": "認識的人、交情",
+        "image_file": "75-acquaintance.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 19
+    },
+    {
+        "word": "acquire",
+        "translation": "獲得、購得",
+        "image_file": "76-acquire.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 13
+    },
+    {
+        "word": "acquisition",
+        "translation": "獲得、獲得物",
+        "image_file": "77-acquisition.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    },
+    {
+        "word": "acre",
+        "translation": "英畝",
+        "image_file": "78-acre.png",
+        "audio_url": null,
+        "level_id": 6,
+        "category_id": 15
+    },
+    {
+        "word": "across",
+        "translation": "橫過、在對面、遍及",
+        "image_file": "79-across.png",
+        "audio_url": null,
+        "level_id": 4,
+        "category_id": 3
+    },
+    {
+        "word": "act",
+        "translation": "表演者、行為；演出、行事",
+        "image_file": "80-act.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 17
+    },
+    {
+        "word": "acting",
+        "translation": "臨時代理的",
+        "image_file": "81-acting.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 17
+    },
+    {
+        "word": "action",
+        "translation": "行動、行為、動作",
+        "image_file": "82-action.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 17
+    },
+    {
+        "word": "activate",
+        "translation": "使活動、活化",
+        "image_file": "83-activate.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    },
+    {
+        "word": "active",
+        "translation": "活躍的、積極的",
+        "image_file": "84-active.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 9
+    },
+    {
+        "word": "activist",
+        "translation": "活躍份子",
+        "image_file": "85-activist.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "activity",
+        "translation": "活動",
+        "image_file": "86-activity.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 17
+    },
+    {
+        "word": "actor",
+        "translation": "演員",
+        "image_file": "87-actor.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 17
+    },
+    {
+        "word": "actress",
+        "translation": "女演員",
+        "image_file": "88-actress.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 17
+    },
+    {
+        "word": "actual",
+        "translation": "實際的、真正的",
+        "image_file": "89-actual.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "actually",
+        "translation": "實際上、事實上",
+        "image_file": "90-actually.png",
+        "audio_url": null,
+        "level_id": 2,
+        "category_id": 3
+    },
+    {
+        "word": "acute",
+        "translation": "嚴重的、急性的、靈敏的；銳音符",
+        "image_file": "91-acute.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    },
+    {
+        "word": "adapt",
+        "translation": "(使)適應、改編",
+        "image_file": "92-adapt.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 12
+    },
+    {
+        "word": "adaptation",
+        "translation": "改編、適應",
+        "image_file": "93-adaptation.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 12
+    },
+    {
+        "word": "add",
+        "translation": "加上、增加、補充說",
+        "image_file": "94-add.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 3
+    },
+    {
+        "word": "addict",
+        "translation": "成癮者、入迷的人",
+        "image_file": "95-addict.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 5
+    },
+    {
+        "word": "addicted",
+        "translation": "上癮的、入迷的",
+        "image_file": "96-addicted.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "addiction",
+        "translation": "上癮、入迷",
+        "image_file": "97-addiction.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 19
+    },
+    {
+        "word": "addition",
+        "translation": "加法、添加、增加的人或物",
+        "image_file": "98-addition.png",
+        "audio_url": null,
+        "level_id": 1,
+        "category_id": 3
+    },
+    {
+        "word": "additional",
+        "translation": "額外的、附加的",
+        "image_file": "99-additional.png",
+        "audio_url": null,
+        "level_id": 5,
+        "category_id": 18
+    },
+    {
+        "word": "additive",
+        "translation": "添加物；附加的",
+        "image_file": "100-additive.png",
+        "audio_url": null,
+        "level_id": 7,
+        "category_id": 18
+    }
+]
