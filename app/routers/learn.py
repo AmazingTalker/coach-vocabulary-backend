@@ -112,7 +112,8 @@ def get_learn_session(
                  user_id, 
                  limit=needed, 
                  level_id=target_level.id, 
-                 category_id=target_cat.id
+                 category_id=target_cat.id,
+                 randomize=True
              )
              
              # Filter out duplicates if any (though get_p0_words excludes learned, and we move linearly)

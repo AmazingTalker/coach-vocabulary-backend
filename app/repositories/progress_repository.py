@@ -45,6 +45,7 @@ class ProgressRepository:
         limit: Optional[int] = None,
         level_id: Optional[int] = None,
         category_id: Optional[int] = None,
+        randomize: bool = False,
     ) -> List[Word]:
         """
         Get P0 words (words without any progress record for this user).
@@ -68,7 +69,10 @@ class ProgressRepository:
         if category_id is not None:
             query = query.filter(Word.category_id == category_id)
 
-        query = query.order_by(Word.id)
+        if randomize:
+            query = query.order_by(func.random())
+        else:
+            query = query.order_by(Word.id)
 
         if limit:
             query = query.limit(limit)
