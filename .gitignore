@@ -62,3 +62,7 @@ static/audio/*
 vocab_all/
 vocab.zip
 words_all.json
+# Data files
+words.json
+vocab.zip
+vocab/
