@@ -10,25 +10,17 @@ from app.schemas.review import (
     ReviewSessionResponse,
     ReviewCompleteRequest,
     ReviewCompleteResponse,
-    ReviewSubmitRequest,
-    ReviewSubmitResponse,
-    ReviewSummary,
 )
 from app.schemas.common import (
     WordDetailWithPoolSchema,
     ExerciseSchema,
     OptionSchema,
-    AnswerResultSchema,
 )
 from app.repositories.progress_repository import ProgressRepository
 from app.repositories.word_repository import WordRepository
 from app.repositories.answer_history_repository import AnswerHistoryRepository
 from app.services.session_service import build_word_detail, build_exercise
-from app.services.spaced_repetition import (
-    complete_review_phase,
-    process_correct_answer,
-    process_incorrect_answer,
-)
+from app.services.spaced_repetition import complete_review_phase
 from app.utils.constants import REVIEW_MAX_WORDS
 
 router = APIRouter(prefix="/api/review", tags=["review"])
@@ -176,88 +168,4 @@ def complete_review(
         success=True,
         words_completed=words_completed,
         next_practice_time=next_practice_time,
-    )
-
-
-@router.post("/submit", response_model=ReviewSubmitResponse)
-def submit_review(
-    request: ReviewSubmitRequest,
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db)
-):
-    """Submit review test answers (R pool practice phase)."""
-    progress_repo = ProgressRepository(db)
-    answer_history_repo = AnswerHistoryRepository(db)
-    user_id = current_user.id
-
-    now = datetime.now(timezone.utc)
-    results = []
-    correct_count = 0
-    incorrect_count = 0
-    returned_to_p = 0
-    answer_records = []
-
-    for answer in request.answers:
-        try:
-            word_id = UUID(answer.word_id)
-        except ValueError:
-            raise HTTPException(status_code=400, detail=f"Invalid word_id: {answer.word_id}")
-
-        progress = progress_repo.get_by_user_and_word(user_id, word_id)
-        if not progress:
-            raise HTTPException(status_code=404, detail=f"Progress not found for word: {answer.word_id}")
-
-        previous_pool = progress.pool
-
-        # Record answer history
-        answer_records.append({
-            "user_id": user_id,
-            "word_id": word_id,
-            "word": progress.word.word,
-            "is_correct": answer.correct,
-            "exercise_type": answer.exercise_type,
-            "source": "review_practice",
-            "pool": previous_pool,
-            "user_answer": answer.user_answer,
-            "response_time_ms": answer.response_time_ms,
-        })
-
-        if answer.correct:
-            new_pool, next_time, is_review = process_correct_answer(previous_pool)
-            correct_count += 1
-            if new_pool.startswith("P"):
-                returned_to_p += 1
-        else:
-            new_pool, next_time, is_review = process_incorrect_answer(previous_pool)
-            incorrect_count += 1
-
-        # Update progress
-        progress_repo.update_progress(
-            progress,
-            pool=new_pool,
-            last_practice_time=now,
-            next_available_time=next_time,
-            is_in_review_phase=is_review,
-        )
-
-        results.append(AnswerResultSchema(
-            word_id=answer.word_id,
-            correct=answer.correct,
-            previous_pool=previous_pool,
-            new_pool=new_pool,
-            next_available_time=next_time,
-        ))
-
-    # Save answer history
-    if answer_records:
-        answer_history_repo.create_answers_batch(answer_records)
-
-    return ReviewSubmitResponse(
-        success=True,
-        results=results,
-        summary=ReviewSummary(
-            correct_count=correct_count,
-            incorrect_count=incorrect_count,
-            returned_to_p=returned_to_p,
-        ),
     )

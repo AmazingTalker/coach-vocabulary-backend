@@ -6,7 +6,6 @@ from app.schemas.common import (
     WordDetailWithPoolSchema,
     ExerciseSchema,
     AnswerSchema,
-    AnswerResultSchema,
 )
 
 
@@ -26,19 +25,3 @@ class ReviewCompleteResponse(BaseModel):
     success: bool
     words_completed: int
     next_practice_time: datetime
-
-
-class ReviewSubmitRequest(BaseModel):
-    answers: List[AnswerSchema]
-
-
-class ReviewSummary(BaseModel):
-    correct_count: int
-    incorrect_count: int
-    returned_to_p: int
-
-
-class ReviewSubmitResponse(BaseModel):
-    success: bool
-    results: List[AnswerResultSchema]
-    summary: ReviewSummary
