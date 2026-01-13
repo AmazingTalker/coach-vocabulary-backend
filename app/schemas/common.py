@@ -42,6 +42,9 @@ class WordDetailWithPoolSchema(WordDetailSchema):
 class AnswerSchema(BaseModel):
     word_id: str
     correct: bool
+    exercise_type: str
+    user_answer: Optional[str] = None
+    response_time_ms: Optional[int] = None
 
 
 class AnswerResultSchema(BaseModel):

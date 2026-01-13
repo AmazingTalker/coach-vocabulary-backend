@@ -15,6 +15,7 @@ from app.schemas.common import WordDetailSchema, ExerciseSchema, OptionSchema
 from app.repositories.progress_repository import ProgressRepository
 from app.repositories.word_repository import WordRepository
 from app.repositories.user_repository import UserRepository
+from app.repositories.answer_history_repository import AnswerHistoryRepository
 from app.models.word_level import WordLevel
 from app.models.word_category import WordCategory
 from app.services.session_service import build_learn_exercise, build_word_detail
@@ -167,11 +168,15 @@ def complete_learn(
     """Complete learning session, move words from P0 to P1."""
     progress_repo = ProgressRepository(db)
     word_repo = WordRepository(db)
+    answer_history_repo = AnswerHistoryRepository(db)
     user_id = current_user.id
 
     now = datetime.now(timezone.utc)
     next_time = get_next_available_time("P1")
     words_moved = 0
+
+    # Build word_id to word mapping for answer history
+    word_id_to_word = {}
 
     for word_id_str in request.word_ids:
         try:
@@ -183,6 +188,9 @@ def complete_learn(
         word = word_repo.get_by_id(word_id)
         if not word:
             raise HTTPException(status_code=404, detail=f"Word not found: {word_id_str}")
+
+        # Store word for answer history
+        word_id_to_word[word_id_str] = word.word
 
         # Check if already has progress record (not in P0)
         existing_progress = progress_repo.get_by_user_and_word(user_id, word_id)
@@ -199,6 +207,23 @@ def complete_learn(
             next_available_time=next_time,
         )
         words_moved += 1
+
+    # Record answer history
+    answer_records = []
+    for answer in request.answers:
+        answer_records.append({
+            "user_id": user_id,
+            "word_id": UUID(answer.word_id),
+            "word": word_id_to_word.get(answer.word_id, ""),
+            "is_correct": answer.correct,
+            "exercise_type": answer.exercise_type,
+            "source": "learn",
+            "pool": "P0",
+            "user_answer": answer.user_answer,
+            "response_time_ms": answer.response_time_ms,
+        })
+    if answer_records:
+        answer_history_repo.create_answers_batch(answer_records)
         
     # Update User Level/Category Logic
     # 1. Get all completed words objects to check their levels

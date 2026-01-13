@@ -19,6 +19,7 @@ class ReviewSessionResponse(BaseModel):
 
 class ReviewCompleteRequest(BaseModel):
     word_ids: List[str]
+    answers: List[AnswerSchema]
 
 
 class ReviewCompleteResponse(BaseModel):

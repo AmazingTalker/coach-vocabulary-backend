@@ -1,7 +1,7 @@
 from typing import Optional, List
 from pydantic import BaseModel
 
-from app.schemas.common import WordDetailSchema, ExerciseSchema
+from app.schemas.common import WordDetailSchema, ExerciseSchema, AnswerSchema
 
 
 class LearnSessionResponse(BaseModel):
@@ -13,6 +13,7 @@ class LearnSessionResponse(BaseModel):
 
 class LearnCompleteRequest(BaseModel):
     word_ids: List[str]
+    answers: List[AnswerSchema]
 
 
 class LearnCompleteResponse(BaseModel):

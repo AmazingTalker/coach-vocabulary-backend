@@ -22,6 +22,7 @@ from app.schemas.common import (
 )
 from app.repositories.progress_repository import ProgressRepository
 from app.repositories.word_repository import WordRepository
+from app.repositories.answer_history_repository import AnswerHistoryRepository
 from app.services.session_service import build_word_detail, build_exercise
 from app.services.spaced_repetition import (
     complete_review_phase,
@@ -109,11 +110,15 @@ def complete_review(
         raise HTTPException(status_code=400, detail="word_ids cannot be empty")
 
     progress_repo = ProgressRepository(db)
+    answer_history_repo = AnswerHistoryRepository(db)
     user_id = current_user.id
 
     now = datetime.now(timezone.utc)
     words_completed = 0
     next_practice_time = None
+
+    # Build word_id to pool mapping for answer history
+    word_id_to_info = {}
 
     for word_id_str in request.word_ids:
         try:
@@ -127,6 +132,12 @@ def complete_review(
 
         if not progress.pool.startswith("R"):
             raise HTTPException(status_code=400, detail=f"Word {word_id_str} is not in R pool")
+
+        # Store info for answer history
+        word_id_to_info[word_id_str] = {
+            "word": progress.word.word,
+            "pool": progress.pool,
+        }
 
         # Complete review phase
         next_time, is_review = complete_review_phase(progress.pool)
@@ -143,6 +154,24 @@ def complete_review(
         if next_practice_time is None:
             next_practice_time = next_time
 
+    # Record answer history for review_learn
+    answer_records = []
+    for answer in request.answers:
+        info = word_id_to_info.get(answer.word_id, {})
+        answer_records.append({
+            "user_id": user_id,
+            "word_id": UUID(answer.word_id),
+            "word": info.get("word", ""),
+            "is_correct": answer.correct,
+            "exercise_type": answer.exercise_type,
+            "source": "review_learn",
+            "pool": info.get("pool", ""),
+            "user_answer": answer.user_answer,
+            "response_time_ms": answer.response_time_ms,
+        })
+    if answer_records:
+        answer_history_repo.create_answers_batch(answer_records)
+
     return ReviewCompleteResponse(
         success=True,
         words_completed=words_completed,
@@ -158,6 +187,7 @@ def submit_review(
 ):
     """Submit review test answers (R pool practice phase)."""
     progress_repo = ProgressRepository(db)
+    answer_history_repo = AnswerHistoryRepository(db)
     user_id = current_user.id
 
     now = datetime.now(timezone.utc)
@@ -165,6 +195,7 @@ def submit_review(
     correct_count = 0
     incorrect_count = 0
     returned_to_p = 0
+    answer_records = []
 
     for answer in request.answers:
         try:
@@ -177,6 +208,19 @@ def submit_review(
             raise HTTPException(status_code=404, detail=f"Progress not found for word: {answer.word_id}")
 
         previous_pool = progress.pool
+
+        # Record answer history
+        answer_records.append({
+            "user_id": user_id,
+            "word_id": word_id,
+            "word": progress.word.word,
+            "is_correct": answer.correct,
+            "exercise_type": answer.exercise_type,
+            "source": "review_practice",
+            "pool": previous_pool,
+            "user_answer": answer.user_answer,
+            "response_time_ms": answer.response_time_ms,
+        })
 
         if answer.correct:
             new_pool, next_time, is_review = process_correct_answer(previous_pool)
@@ -203,6 +247,10 @@ def submit_review(
             new_pool=new_pool,
             next_available_time=next_time,
         ))
+
+    # Save answer history
+    if answer_records:
+        answer_history_repo.create_answers_batch(answer_records)
 
     return ReviewSubmitResponse(
         success=True,

@@ -15,6 +15,7 @@ from app.schemas.practice import (
 from app.schemas.common import ExerciseWithWordSchema, OptionSchema, AnswerResultSchema
 from app.repositories.progress_repository import ProgressRepository
 from app.repositories.word_repository import WordRepository
+from app.repositories.answer_history_repository import AnswerHistoryRepository
 from app.services.session_service import (
     build_exercise,
     sort_exercises_by_type,
@@ -116,12 +117,14 @@ def submit_practice(
 ):
     """Submit practice session answers."""
     progress_repo = ProgressRepository(db)
+    answer_history_repo = AnswerHistoryRepository(db)
     user_id = current_user.id
 
     now = datetime.now(timezone.utc)
     results = []
     correct_count = 0
     incorrect_count = 0
+    answer_records = []
 
     for answer in request.answers:
         try:
@@ -134,6 +137,22 @@ def submit_practice(
             raise HTTPException(status_code=404, detail=f"Progress not found for word: {answer.word_id}")
 
         previous_pool = progress.pool
+
+        # Determine source based on pool (P pool = practice, R pool = review_practice)
+        source = "review_practice" if previous_pool.startswith("R") else "practice"
+
+        # Record answer history
+        answer_records.append({
+            "user_id": user_id,
+            "word_id": word_id,
+            "word": progress.word.word,
+            "is_correct": answer.correct,
+            "exercise_type": answer.exercise_type,
+            "source": source,
+            "pool": previous_pool,
+            "user_answer": answer.user_answer,
+            "response_time_ms": answer.response_time_ms,
+        })
 
         if answer.correct:
             new_pool, next_time, is_review = process_correct_answer(previous_pool)
@@ -158,6 +177,10 @@ def submit_practice(
             new_pool=new_pool,
             next_available_time=next_time,
         ))
+
+    # Save answer history
+    if answer_records:
+        answer_history_repo.create_answers_batch(answer_records)
 
     return PracticeSubmitResponse(
         success=True,

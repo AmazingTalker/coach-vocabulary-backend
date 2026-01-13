@@ -9,6 +9,7 @@ if TYPE_CHECKING:
     from app.models.word_progress import WordProgress
     from app.models.word_level import WordLevel
     from app.models.word_category import WordCategory
+    from app.models.answer_history import AnswerHistory
 
 
 class Word(Base, UUIDMixin):
@@ -62,3 +63,8 @@ class Word(Base, UUIDMixin):
     )
     level: Mapped["WordLevel"] = relationship("WordLevel", back_populates="words")
     category: Mapped["WordCategory"] = relationship("WordCategory", back_populates="words")
+    answer_history: Mapped[list["AnswerHistory"]] = relationship(
+        "AnswerHistory",
+        back_populates="word_rel",
+        cascade="all, delete-orphan"
+    )
