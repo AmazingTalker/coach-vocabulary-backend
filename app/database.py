@@ -4,7 +4,7 @@ from typing import Generator
 
 from app.config import settings
 
-engine = create_engine(settings.database_url, echo=settings.debug)
+engine = create_engine(settings.get_database_url(), echo=settings.debug)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
