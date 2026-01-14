@@ -1,9 +1,13 @@
 import os
+from datetime import datetime
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from sqlalchemy import text
 
 from app.config import settings
+from app.database import SessionLocal
 from app.routers import auth, home, learn, practice, review, admin, level_analysis
 
 app = FastAPI(
@@ -42,4 +46,17 @@ def root():
 
 @app.get("/health")
 def health_check():
-    return {"status": "healthy"}
+    current_time = datetime.utcnow().isoformat() + "Z"
+
+    # Get current migration version from database
+    try:
+        with SessionLocal() as session:
+            result = session.execute(text("SELECT version_num FROM alembic_version LIMIT 1"))
+            migration_version = result.scalar()
+    except Exception:
+        migration_version = "unknown"
+
+    return {
+        "timestamp": current_time,
+        "db_migration_version": migration_version
+    }
