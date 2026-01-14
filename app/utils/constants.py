@@ -1,7 +1,6 @@
 from enum import Enum
 from typing import Dict, Optional
 
-
 class PoolType(str, Enum):
     P0 = "P0"
     P1 = "P1"
