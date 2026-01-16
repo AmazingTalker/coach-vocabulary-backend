@@ -38,7 +38,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install alembic psycopg2-binary sqlalchemy
+        run: pip install -r requirements.txt
 
       - name: Setup Cloud SQL Proxy
         run: |
