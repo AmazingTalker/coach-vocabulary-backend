@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     # JWT Settings
     jwt_secret_key: str = "your-secret-key-change-in-production"
     jwt_algorithm: str = "HS256"
-    jwt_access_token_expire_days: int = 30
+    jwt_access_token_expire_days: int = 180
 
     # Static files (Cloud Storage)
     static_base_url: str = ""  # Empty = local /static, set for GCS URL
