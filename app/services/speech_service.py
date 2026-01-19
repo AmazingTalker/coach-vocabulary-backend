@@ -143,13 +143,20 @@ class SpeechService:
 
             audio = speech.RecognitionAudio(content=audio_data)
 
-            config = speech.RecognitionConfig(
-                encoding=encoding,
-                sample_rate_hertz=48000,  # Common sample rate for web audio
-                language_code="en-US",
-                enable_automatic_punctuation=False,
-                # Use default model for short audio
-            )
+            # For WAV files, omit sample_rate_hertz to let Google auto-detect from header
+            if extension == ".wav":
+                config = speech.RecognitionConfig(
+                    encoding=encoding,
+                    language_code="en-US",
+                    enable_automatic_punctuation=False,
+                )
+            else:
+                config = speech.RecognitionConfig(
+                    encoding=encoding,
+                    sample_rate_hertz=48000,
+                    language_code="en-US",
+                    enable_automatic_punctuation=False,
+                )
 
             response = self.speech_client.recognize(config=config, audio=audio)
 
