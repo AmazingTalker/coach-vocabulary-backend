@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     # Static files (Cloud Storage)
     static_base_url: str = ""  # Empty = local /static, set for GCS URL
 
+    # Google Cloud credentials (for local development)
+    google_application_credentials: str = ""
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

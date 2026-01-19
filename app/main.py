@@ -8,7 +8,7 @@ from sqlalchemy import text
 
 from app.config import settings
 from app.database import SessionLocal
-from app.routers import auth, home, learn, practice, review, admin, level_analysis
+from app.routers import auth, home, learn, practice, review, admin, level_analysis, speech
 
 app = FastAPI(
     title="Coach Vocabulary API",
@@ -37,6 +37,7 @@ app.include_router(practice.router)
 app.include_router(review.router)
 app.include_router(admin.router)
 app.include_router(level_analysis.router)
+app.include_router(speech.router)
 
 
 @app.get("/")

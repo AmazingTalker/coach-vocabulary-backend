@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     from app.models.word_level import WordLevel
     from app.models.word_category import WordCategory
     from app.models.answer_history import AnswerHistory
+    from app.models.speech_log import SpeechLog
 
 
 class User(Base, UUIDMixin, TimestampMixin):
@@ -68,6 +69,11 @@ class User(Base, UUIDMixin, TimestampMixin):
     current_category: Mapped[Optional["WordCategory"]] = relationship("WordCategory", back_populates="users")
     answer_history: Mapped[list["AnswerHistory"]] = relationship(
         "AnswerHistory",
+        back_populates="user",
+        cascade="all, delete-orphan"
+    )
+    speech_logs: Mapped[list["SpeechLog"]] = relationship(
+        "SpeechLog",
         back_populates="user",
         cascade="all, delete-orphan"
     )
