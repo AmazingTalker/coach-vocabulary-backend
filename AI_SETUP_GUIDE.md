@@ -380,7 +380,7 @@ pip install -r requirements.txt
 **Solution**:
 ```bash
 lsof -ti:8000 | xargs kill -9
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 ### Migration Errors
@@ -419,7 +419,7 @@ python scripts/seed_words.py --direct
 | Install deps | `pip install -r requirements.txt` | Install Python packages |
 | Run migrations | `alembic upgrade head` | Create database tables |
 | Seed data | `python scripts/seed_words.py --direct` | Import 214 words |
-| Start server | `uvicorn app.main:app --reload` | Start dev server |
+| Start server | `uvicorn app.main:app --reload --host 0.0.0.0 --port 8000` | Start dev server |
 | Health check | `curl http://localhost:8000/health` | Verify server running |
 | API docs | Open http://localhost:8000/docs | Swagger UI |
 

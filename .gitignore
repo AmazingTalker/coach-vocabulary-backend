@@ -36,6 +36,9 @@ ENV/
 .env.local
 .env.test
 
+# Secrets (service account keys)
+secrets/
+
 # Database
 *.db
 *.sqlite3
