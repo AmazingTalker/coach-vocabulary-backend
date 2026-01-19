@@ -48,7 +48,7 @@ alembic upgrade head
 ### 4. 啟動 API 伺服器
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 API 將運行在 http://localhost:8000
