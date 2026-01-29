@@ -1,5 +1,10 @@
+from datetime import timezone, timedelta
 from enum import Enum
 from typing import Dict, Optional
+
+# Timezone used for daily boundary calculations (e.g. "today's learned count").
+# All "today" references in the codebase should use this timezone.
+APP_TIMEZONE = timezone(timedelta(hours=8))  # UTC+8
 
 class PoolType(str, Enum):
     P0 = "P0"

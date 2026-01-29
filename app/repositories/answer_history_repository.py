@@ -4,6 +4,7 @@ from uuid import UUID
 from sqlalchemy.orm import Session
 
 from app.models.answer_history import AnswerHistory
+from app.utils.constants import APP_TIMEZONE
 
 
 class AnswerHistoryRepository:
@@ -12,7 +13,7 @@ class AnswerHistoryRepository:
 
     def count_today_completed(self, user_id: UUID) -> int:
         """Count exercises completed today (practice + review)."""
-        today_start = datetime.now(timezone.utc).replace(
+        today_start = datetime.now(APP_TIMEZONE).replace(
             hour=0, minute=0, second=0, microsecond=0
         )
         return (
