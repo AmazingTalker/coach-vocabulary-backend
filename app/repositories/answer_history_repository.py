@@ -1,13 +1,30 @@
+from datetime import datetime, timezone
 from typing import List, Optional
 from uuid import UUID
 from sqlalchemy.orm import Session
 
 from app.models.answer_history import AnswerHistory
+from app.utils.constants import APP_TIMEZONE
 
 
 class AnswerHistoryRepository:
     def __init__(self, db: Session):
         self.db = db
+
+    def count_today_completed(self, user_id: UUID) -> int:
+        """Count exercises completed today (practice + review)."""
+        today_start = datetime.now(APP_TIMEZONE).replace(
+            hour=0, minute=0, second=0, microsecond=0
+        )
+        return (
+            self.db.query(AnswerHistory)
+            .filter(
+                AnswerHistory.user_id == user_id,
+                AnswerHistory.source.in_(["practice", "review_learn", "review_practice"]),
+                AnswerHistory.created_at >= today_start,
+            )
+            .count()
+        )
 
     def create_answer(
         self,

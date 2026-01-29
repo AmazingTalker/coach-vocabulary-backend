@@ -10,6 +10,7 @@ from app.schemas.auth import (
     LoginRequest,
     LoginResponse,
     UserResponse,
+    TutorialCompletionSchema,
     DeleteAccountRequest,
     DeleteAccountResponse,
 )
@@ -114,7 +115,15 @@ def get_me(current_user: User = Depends(get_current_user)):
         is_active=current_user.is_active,
         current_level_id=current_user.current_level_id,
         current_category_id=current_user.current_category_id,
-        vocabulary_tutorial_completed_at=current_user.vocabulary_tutorial_completed_at
+        vocabulary_tutorial_completed_at=current_user.vocabulary_tutorial_completed_at,
+        tutorial_completion=TutorialCompletionSchema(
+            learn=current_user.tutorial_learn_completed_at is not None,
+            reading_lv1=current_user.tutorial_reading_lv1_completed_at is not None,
+            reading_lv2=current_user.tutorial_reading_lv2_completed_at is not None,
+            listening_lv1=current_user.tutorial_listening_lv1_completed_at is not None,
+            speaking_lv1=current_user.tutorial_speaking_lv1_completed_at is not None,
+            speaking_lv2=current_user.tutorial_speaking_lv2_completed_at is not None,
+        )
     )
 
 

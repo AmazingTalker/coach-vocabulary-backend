@@ -43,6 +43,12 @@ class User(Base, UUIDMixin, TimestampMixin):
         DateTime(timezone=True),
         nullable=True
     )
+    tutorial_learn_completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    tutorial_reading_lv1_completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    tutorial_reading_lv2_completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    tutorial_listening_lv1_completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    tutorial_speaking_lv1_completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    tutorial_speaking_lv2_completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
     current_level_id: Mapped[Optional[int]] = mapped_column(
         ForeignKey("word_levels.id"),
         nullable=True

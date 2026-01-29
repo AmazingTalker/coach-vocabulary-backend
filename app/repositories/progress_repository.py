@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session, joinedload
 from app.models.word import Word
 from app.models.word_progress import WordProgress
 from app.utils.constants import (
+    APP_TIMEZONE,
     DAILY_LEARN_LIMIT,
     P1_UPCOMING_LIMIT,
     PRACTICE_MIN_WORDS,
@@ -146,7 +147,7 @@ class ProgressRepository:
 
     def count_today_learned(self, user_id: UUID) -> int:
         """Count words learned today."""
-        today_start = datetime.now(timezone.utc).replace(
+        today_start = datetime.now(APP_TIMEZONE).replace(
             hour=0, minute=0, second=0, microsecond=0
         )
         return (

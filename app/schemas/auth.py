@@ -41,6 +41,15 @@ class TokenResponse(BaseModel):
 
 
 # ============== Current User ==============
+class TutorialCompletionSchema(BaseModel):
+    learn: bool = False
+    reading_lv1: bool = False
+    reading_lv2: bool = False
+    listening_lv1: bool = False
+    speaking_lv1: bool = False
+    speaking_lv2: bool = False
+
+
 class UserResponse(BaseModel):
     id: str
     email: str
@@ -50,6 +59,7 @@ class UserResponse(BaseModel):
     current_level_id: Optional[int] = None
     current_category_id: Optional[int] = None
     vocabulary_tutorial_completed_at: Optional[datetime] = None
+    tutorial_completion: TutorialCompletionSchema
 
     class Config:
         from_attributes = True

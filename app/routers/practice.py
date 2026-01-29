@@ -18,6 +18,7 @@ from app.repositories.word_repository import WordRepository
 from app.repositories.answer_history_repository import AnswerHistoryRepository
 from app.services.session_service import (
     build_exercise,
+    build_next_review,
     sort_exercises_by_type,
     get_exercise_order,
 )
@@ -99,6 +100,7 @@ def get_practice_session(
             type=ex["type"],
             options=[OptionSchema(**opt) for opt in ex["options"]],
             correct_index=ex["correct_index"],
+            next_review=build_next_review(ex["pool"], "practice"),
         ))
 
     return PracticeSessionResponse(

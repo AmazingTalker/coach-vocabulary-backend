@@ -18,7 +18,7 @@ from app.repositories.user_repository import UserRepository
 from app.repositories.answer_history_repository import AnswerHistoryRepository
 from app.models.word_level import WordLevel
 from app.models.word_category import WordCategory
-from app.services.session_service import build_learn_exercise, build_word_detail
+from app.services.session_service import build_learn_exercise, build_word_detail, build_next_review
 from app.services.spaced_repetition import get_next_available_time
 from app.utils.constants import LEARN_SESSION_SIZE
 
@@ -149,6 +149,7 @@ def get_learn_session(
             type=exercise_data["type"],
             options=[OptionSchema(**opt) for opt in exercise_data["options"]],
             correct_index=exercise_data["correct_index"],
+            next_review=build_next_review("P0", "learn"),
         ))
 
     return LearnSessionResponse(

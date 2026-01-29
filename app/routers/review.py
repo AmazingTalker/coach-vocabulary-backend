@@ -19,7 +19,7 @@ from app.schemas.common import (
 from app.repositories.progress_repository import ProgressRepository
 from app.repositories.word_repository import WordRepository
 from app.repositories.answer_history_repository import AnswerHistoryRepository
-from app.services.session_service import build_word_detail, build_exercise
+from app.services.session_service import build_word_detail, build_exercise, build_next_review
 from app.services.spaced_repetition import complete_review_phase
 from app.utils.constants import REVIEW_MAX_WORDS
 
@@ -81,6 +81,7 @@ def get_review_session(
             type=exercise_data["type"],
             options=[OptionSchema(**opt) for opt in exercise_data["options"]],
             correct_index=exercise_data["correct_index"],
+            next_review=build_next_review(progress.pool, "review"),
         ))
 
     return ReviewSessionResponse(
