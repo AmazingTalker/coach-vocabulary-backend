@@ -5,9 +5,51 @@ from app.models.word import Word
 from app.utils.constants import (
     OPTIONS_COUNT,
     POOL_EXERCISE_TYPES,
+    POOL_WAIT_TIMES,
+    POOL_CORRECT_NEXT,
     EXERCISE_TYPE_ORDER,
     ExerciseType,
 )
+from app.schemas.common import NextReviewSchema
+
+
+def build_next_review(pool: str, session_mode: str) -> NextReviewSchema:
+    """Build next_review info for a given pool and session mode.
+
+    Pure computation — does not modify any database state.
+    """
+    if session_mode == "learn":
+        wait = POOL_WAIT_TIMES["P1"]
+        return NextReviewSchema(
+            correct_wait_seconds=wait,
+            correct_is_mastered=False,
+            incorrect_wait_seconds=wait,
+        )
+
+    if session_mode == "review":
+        wait = POOL_WAIT_TIMES["R_PRACTICE"]
+        return NextReviewSchema(
+            correct_wait_seconds=wait,
+            correct_is_mastered=False,
+            incorrect_wait_seconds=wait,
+        )
+
+    # Practice mode — depends on current pool
+    correct_dest = POOL_CORRECT_NEXT.get(pool)
+    if correct_dest == "P6":
+        correct_wait = 0
+        mastered = True
+    else:
+        correct_wait = POOL_WAIT_TIMES.get(correct_dest, 0)
+        mastered = False
+
+    incorrect_wait = POOL_WAIT_TIMES["R_REVIEW"]
+
+    return NextReviewSchema(
+        correct_wait_seconds=correct_wait,
+        correct_is_mastered=mastered,
+        incorrect_wait_seconds=incorrect_wait,
+    )
 
 
 def generate_options(

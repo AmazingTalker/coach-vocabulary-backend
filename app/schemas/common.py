@@ -10,11 +10,19 @@ class OptionSchema(BaseModel):
     image_url: Optional[str] = None
 
 
+class NextReviewSchema(BaseModel):
+    """下次複習等待時間（答對/答錯兩種情境）"""
+    correct_wait_seconds: int
+    correct_is_mastered: bool
+    incorrect_wait_seconds: int
+
+
 class ExerciseSchema(BaseModel):
     word_id: str
     type: str
     options: List[OptionSchema]
     correct_index: Optional[int] = None
+    next_review: Optional[NextReviewSchema] = None
 
 
 class ExerciseWithWordSchema(ExerciseSchema):
